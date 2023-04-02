@@ -22,6 +22,7 @@ index = GPTSimpleVectorIndex(documents)
 
 hide_streamlit_style = """
             <style>
+
             footer {visibility: hidden;}
             </style>
             """
@@ -30,15 +31,15 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 sidebartitle1 = '<p style="font-family: Courier New; color:white; text-align: center; font-size: 25px;">FAQ</p>'
 st.sidebar.markdown(sidebartitle1, unsafe_allow_html=True)
 
-with st.sidebar.expander("What is Access AI?", expanded = False):
-    st.write("*Access AI* is a web app that reads user's blood test data, and provides them with actionable insights that were tailored to their specific needs.")
+with st.sidebar.expander("What is BloodMetrixx?", expanded = True):
+    st.write("*BloodMetrixx* is a web app that reads user's blood test data, visualizes it for the user, and provides the user with AI based suggestions on how they can maintain good health.")
     
-with st.sidebar.expander("How do I use this program?", expanded = False):
+with st.sidebar.expander("How do I use this program?", expanded = True):
     st.write("1. Upload your blood test data")
     st.write("2. See your data visualized compared to the recommended value for certain tests as well as your historical values for these tests.")
     st.write("3. Get AI generated feedback on how to maintain healthy blood test levels!")
 
-with st.sidebar.expander("How is this being done? What technologies are used?", expanded = False):
+with st.sidebar.expander("How is this being done? What technologies are used?", expanded = True):
     st.write("Once uploaded, the PDF is parsed by a `Large Language Model`, which takes the text and turnes it into a format easily readable by the computer. The values are then scanned, and the user is able to see their charts. The user's test values are compared to the recommended values and the `implemented AI` provides recommendations as to how the user can better their test levels.")
 
 # image = Image.open("ktp.jpeg")
@@ -53,8 +54,13 @@ with st.sidebar.expander("How is this being done? What technologies are used?", 
 #     </style>
 #     """,unsafe_allow_html=True)
 
-title = '<p style="font-family: Rockwell; color:white; text-align: center; font-size: 105px;">AXXESS AI</p>'
-st.markdown(title, unsafe_allow_html=True)
+# title = '<p style="font-family: Rockwell; color:white; text-align: center; font-size: 105px;">AXXESS AI</p>'
+# st.markdown(title, unsafe_allow_html=True)
+background = Image.open("logo.png")
+col1, col2, col3 = st.columns([0.2, 5, 0.2])
+col2.image(background, use_column_width=True)
+
+
 
 st.markdown("----")
 head1 = '<p style="font-family: Courier New; color:white; text-align: center; font-size: 35px;">Please Upload Your Blood Test Here</p>'
@@ -192,26 +198,22 @@ if (data != None):
     if (rbcQ != ""):
         st.write(str(rbctext))
     else:
-        st.write("Healthy red blood cell levels")
+        st.write("You have healthy red blood cell levels")
 
     st.subheader("How do I improve my white blood cell levels?")
     if (wbcQ != ""):
         st.write(str(wbctext))
     else:
-        st.write("Healthy white blood cell levels")
+        st.write("You have healthy white blood cell levels")
 
-    st.subheader("How to improve hemaglobin levels")
+    st.subheader("How do I improve my hemaglobin levels?")
     if (hemoQ != ""):
         st.write(str(hemotext))
     else:
-        st.write("Healthy hemoglobin levels")
+        st.write("You have healthy hemoglobin levels")
 
-    st.subheader("How to improve hematocrit")
+    st.subheader("How do I improve my hematocrit levels?")
     if (hemaQ != ""):
         st.write(str(hematext))
     else:
-        st.write("Healthy hematocrit levels")
-
-    
-
-
+        st.write("You have healthy hematocrit levels")
