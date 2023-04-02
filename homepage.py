@@ -11,7 +11,7 @@ from llama_index.node_parser import SimpleNodeParser
 import matplotlib.pyplot as plt
 import numpy as np
 
-os.environ['OPENAI_API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = ''
 parser = SimpleNodeParser()
 documents = SimpleDirectoryReader('/Users/yeshn/Desktop/bloodtests').load_data()
 documents = parser.get_nodes_from_documents(documents)
